@@ -38,3 +38,9 @@
 [custom] - [2024-03-04T16:00:52.772Z] - hello this is custom
 [error] - [2024-03-04T16:00:52.772Z] - hello this is error
 [silly] - [2024-03-04T16:00:52.772Z] - hello this is silly
+[debug] - [2024-03-04T16:23:19.931Z] - hello this is debug
+[info] - [2024-03-04T16:23:19.933Z] - hello this is info
+[warn] - [2024-03-04T16:23:19.933Z] - hello this is warn
+[custom] - [2024-03-04T16:23:19.934Z] - hello this is custom
+[error] - [2024-03-04T16:23:19.934Z] - hello this is error
+[silly] - [2024-03-04T16:23:19.934Z] - hello this is silly

@@ -1,6 +1,9 @@
 /* eslint-disable no-console */
-import { createWriteStream } from 'node:fs'
+import { createReadStream, createWriteStream } from 'node:fs'
 import type { WriteStream } from 'node:fs'
+import { blob } from 'node:stream/consumers'
+import { File } from 'node:buffer'
+import { UTApi } from 'uploadthing/server'
 import { color, getTimeStamp } from './utils'
 
 export type LogLevel = 'debug' | 'info' | 'silly' | 'warn' | 'error' | 'custom'
@@ -8,6 +11,13 @@ export type LogLevel = 'debug' | 'info' | 'silly' | 'warn' | 'error' | 'custom'
 export interface LoggyOptions {
   path?: string
   formatMessageTemplate?: string
+  backupDuration?: number
+  shouldBackUp?: boolean
+  cloud?: {
+    ut: {
+      apiKey: string
+    }
+  }
 }
 
 export interface LogTemplateParams {
@@ -16,18 +26,35 @@ export interface LogTemplateParams {
   MESSAGE: string
 }
 
+export class LoggyPlugin {
+  name: string
+
+  constructor(name: string) {
+    this.name = name
+  }
+}
+
 export class BaseLoggy {
   #level: LogLevel
   #options?: LoggyOptions
   #defaultMessageTemplate: string
   #defaultLogPath: string
   #stream: WriteStream
+  #utApi: UTApi | undefined
+  #lastBackupTS: number | undefined
+  #nextBackupTS: number | undefined
 
   constructor(level: LogLevel, options?: LoggyOptions) {
     this.#level = level
     this.#options = options
     this.#defaultMessageTemplate = '[{LEVEL}] - [{TIME}] - {MESSAGE}'
-    this.#defaultLogPath = 'log.txt'
+    this.#defaultLogPath = 'log.txt' // log-timestamp.txt
+
+    if (options?.cloud?.ut.apiKey) {
+      this.#utApi = new UTApi({
+        apiKey: this.#options?.cloud?.ut.apiKey,
+      })
+    }
 
     if (options?.path)
       this.#stream = createWriteStream(options.path, { flags: 'a' })
@@ -93,7 +120,11 @@ export class BaseLoggy {
     })
   }
 
-  log(message: string, overrideLevel?: LogLevel) {
+  use() {
+    // todo
+  }
+
+  async log(message: string, overrideLevel?: LogLevel) {
     if (overrideLevel)
       this.#level = overrideLevel
 
@@ -120,6 +151,43 @@ export class BaseLoggy {
         break
       default:
         break
+    }
+
+    const currentTS = new Date().getTime()
+
+    if (this.#options) {
+      const { shouldBackUp, backupDuration } = this.#options
+
+      if (shouldBackUp && backupDuration) {
+        const { cloud } = this.#options
+
+        if (!cloud)
+          throw new Error('Should provide cloud if you want to backup!')
+
+        // # create new file
+        const _blob = await blob(createReadStream(this.#defaultLogPath))
+        const file = new File([_blob], this.#defaultLogPath + String(currentTS))
+
+        if (!this.#lastBackupTS && !this.#nextBackupTS) {
+          this.#lastBackupTS = currentTS
+          this.#nextBackupTS = this.#lastBackupTS! + backupDuration
+
+          if (this.#utApi) {
+            // # upload to ut
+            await this.#utApi.uploadFiles(file)
+          }
+        }
+
+        if (currentTS > this.#nextBackupTS!) {
+          this.#lastBackupTS = currentTS
+          this.#nextBackupTS = this.#lastBackupTS! + backupDuration
+
+          if (this.#utApi) {
+            // # upload to ut
+            await this.#utApi.uploadFiles(file)
+          }
+        }
+      }
     }
 
     this.#stream.write(`${_message}\n`)
@@ -158,19 +226,10 @@ export class Loggy extends BaseLoggy {
   }
 }
 
-export const createLogger = (options?: LoggyOptions) => new Loggy(options)
-
-const logger = createLogger()
-
-function examples() {
-  logger.debug('hello this is debug')
-  logger.info('hello this is info')
-  logger.warn('hello this is warn')
-  logger.custom('hello this is custom')
-  logger.error('hello this is error')
-  logger.silly('hello this is silly')
-
-  return 10
-}
-
-console.log(examples())
+/**
+ *
+ * @param options
+ * @description create logger
+ * @returns {Loggy}
+ */
+export const createLogger = (options?: LoggyOptions): Loggy => new Loggy(options)

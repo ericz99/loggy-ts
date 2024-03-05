@@ -1,0 +1,66 @@
+[warn] - [2024-03-04T19:27:40.252Z] - hello this is warn
+[debug] - [2024-03-04T19:27:40.255Z] - hello this is debug
+[debug] - [2024-03-04T19:27:40.255Z] - hello this is debug
+[error] - [2024-03-04T19:27:40.256Z] - hello this is error
+[custom] - [2024-03-04T19:27:40.256Z] - hello this is custom
+[silly] - [2024-03-04T19:27:40.256Z] - hello this is silly
+(warn) - (2024-03-04T23:15:22.662Z) - hello this is warn
+(debug) - (2024-03-04T23:15:22.667Z) - hello this is debug
+(debug) - (2024-03-04T23:15:22.667Z) - hello this is debug
+(error) - (2024-03-04T23:15:22.667Z) - hello this is error
+(custom) - (2024-03-04T23:15:22.667Z) - hello this is custom
+(silly) - (2024-03-04T23:15:22.667Z) - hello this is silly
+(warn) - (2024-03-04T23:15:34.077Z) - >> hello this is warn
+(debug) - (2024-03-04T23:15:34.078Z) - >> hello this is debug
+(debug) - (2024-03-04T23:15:34.078Z) - >> hello this is debug
+(error) - (2024-03-04T23:15:34.078Z) - >> hello this is error
+(custom) - (2024-03-04T23:15:34.078Z) - >> hello this is custom
+(silly) - (2024-03-04T23:15:34.079Z) - >> hello this is silly
+(warn) - (2024-03-04T23:17:50.871Z) - >> hello this is warn
+(debug) - (2024-03-04T23:17:50.872Z) - >> hello this is debug
+(debug) - (2024-03-04T23:17:50.872Z) - >> hello this is debug
+(error) - (2024-03-04T23:17:50.873Z) - >> hello this is error
+(custom) - (2024-03-04T23:17:50.873Z) - >> hello this is custom
+(silly) - (2024-03-04T23:17:50.873Z) - >> hello this is silly
+(warn) - (2024-03-04T23:18:00.277Z) - >> hello this is warn
+(debug) - (2024-03-04T23:18:00.278Z) - >> hello this is debug
+(debug) - (2024-03-04T23:18:00.278Z) - >> hello this is debug
+(error) - (2024-03-04T23:18:00.278Z) - >> hello this is error
+(custom) - (2024-03-04T23:18:00.278Z) - >> hello this is custom
+(silly) - (2024-03-04T23:18:00.278Z) - >> hello this is silly
+😊 (2024-03-04T23:53:54.036Z) - (warn) - >> hello this is warn
+😊 (2024-03-04T23:53:54.038Z) - (debug) - >> hello this is debug
+😊 (2024-03-04T23:53:54.038Z) - (debug) - >> hello this is debug
+😊 (2024-03-04T23:53:54.038Z) - (error) - >> hello this is error
+😊 (2024-03-04T23:53:54.038Z) - (custom) - >> hello this is custom
+😊 (2024-03-04T23:53:54.038Z) - (silly) - >> hello this is silly
+😊 (2024-03-04T23:54:25.083Z) - (warn) - >> hello this is warn
+😊 (2024-03-04T23:54:25.085Z) - (debug) - >> hello this is debug
+😊 (2024-03-04T23:54:25.085Z) - (debug) - >> hello this is debug
+😊 (2024-03-04T23:54:25.085Z) - (error) - >> hello this is error
+😊 (2024-03-04T23:54:25.086Z) - (custom) - >> hello this is custom
+😊 (2024-03-04T23:54:25.086Z) - (silly) - >> hello this is silly
+😊 (2024-03-04T23:54:58.116Z) - (warn) - >> hello this is warn
+😊 (2024-03-04T23:54:58.117Z) - (debug) - >> hello this is debug
+😊 (2024-03-04T23:54:58.118Z) - (debug) - >> hello this is debug
+😊 (2024-03-04T23:54:58.118Z) - (error) - >> hello this is error
+😊 (2024-03-04T23:54:58.118Z) - (custom) - >> hello this is custom
+😊 (2024-03-04T23:54:58.118Z) - (silly) - >> hello this is silly
+😊 (2024-03-05T00:04:20.603Z) - (warn) - >> hello this is warn
+😊 (2024-03-05T00:04:20.604Z) - (debug) - >> hello this is debug
+😊 (2024-03-05T00:04:20.604Z) - (debug) - >> hello this is debug
+😊 (2024-03-05T00:04:20.604Z) - (error) - >> hello this is error
+😊 (2024-03-05T00:04:20.605Z) - (custom) - >> hello this is custom
+😊 (2024-03-05T00:04:20.605Z) - (silly) - >> hello this is silly
+😊 (2024-03-05T00:08:05.216Z) - (warn) - >> hello this is warn
+😊 (2024-03-05T00:08:05.217Z) - (debug) - >> hello this is debug
+😊 (2024-03-05T00:08:05.217Z) - (debug) - >> hello this is debug
+😊 (2024-03-05T00:08:05.217Z) - (error) - >> hello this is error
+😊 (2024-03-05T00:08:05.217Z) - (custom) - >> hello this is custom
+😊 (2024-03-05T00:08:05.217Z) - (silly) - >> hello this is silly
+😊 (2024-03-05T02:44:00.577Z) - (warn) - >> hello this is warn
+😊 (2024-03-05T02:44:00.581Z) - (debug) - >> hello this is debug
+😊 (2024-03-05T02:44:00.581Z) - (debug) - >> hello this is debug
+😊 (2024-03-05T02:44:00.581Z) - (error) - >> hello this is error
+😊 (2024-03-05T02:44:00.582Z) - (custom) - >> hello this is custom
+😊 (2024-03-05T02:44:00.582Z) - (silly) - >> hello this is silly
