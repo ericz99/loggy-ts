@@ -20,7 +20,7 @@ import { createLogger, Loggy } from 'loggy'
 const logger = createLogger({
     path: 'some-path',
     formatMessageTemplate: '😊 ({TIME}) - ({LEVEL}) - >> {MESSAGE}',
-    backupDuration: 3600 * 1000 // 1 hour
+    backupDuration: 3600 * 1000 // 1 hour in MS
     shouldBackUp: true,
     cloud: {
         ut: {
@@ -33,7 +33,7 @@ const logger = createLogger({
 const logger = new Loggy({
     path: 'some-path',
     formatMessageTemplate: '😊 ({TIME}) - ({LEVEL}) - >> {MESSAGE}',
-    backupDuration: 3600 * 1000 // 1 hour
+    backupDuration: 3600 * 1000 // 1 hour in MS
     shouldBackUp: true,
     cloud: {
         ut: {
