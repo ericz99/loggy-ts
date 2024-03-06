@@ -1,6 +1,6 @@
 # Loggy
 
-> Simplify logging in your application
+> Simplify logging in your application + TypeSafe
 
 # Installation
 
