@@ -8,6 +8,14 @@
 npm install loggy
 ```
 
+# Features
+
+- Minimal logging library
+- Cloud log backup using 
+    - [uploadthing](https://uploadthing.com/)
+    - ...more to come
+- Custom log message format
+
 # Usage
 
 ```typescript
@@ -75,5 +83,5 @@ To configure the Cloud Backup Service, users need to provide the following param
 - shouldBackUp: A boolean indicating whether backups should be performed.
 - logLevelColor: You can configure your log level color.
 - cloud: Configuration for the cloud storage provider.
-    - ut: Configuration specific to the cloud provider. Currently, only API key is supported.
+    - [ut](https://uploadthing.com/): Configuration specific to the cloud provider. Currently, only API key is supported.
         - apiKey: The API key for accessing the cloud storage provider.
