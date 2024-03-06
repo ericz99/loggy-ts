@@ -85,3 +85,7 @@ To configure the Cloud Backup Service, users need to provide the following param
 - cloud: Configuration for the cloud storage provider.
     - [ut](https://uploadthing.com/): Configuration specific to the cloud provider. Currently, only API key is supported.
         - apiKey: The API key for accessing the cloud storage provider.
+
+## License
+
+[MIT](./LICENSE) License © 2024 [Eric Zhang](https://github.com/ericz99)
