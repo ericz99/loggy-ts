@@ -4,6 +4,11 @@ import { createLogger } from '../src/index'
 
 const logger = createLogger({
   formatMessageTemplate: '😊 ({TIME}) - ({LEVEL}) - >> {MESSAGE}',
+  logLevelColor: {
+    error: {
+      color: 'blue',
+    },
+  },
 })
 
 describe('logger test', () => {
@@ -11,8 +16,8 @@ describe('logger test', () => {
     logger.warn('hello this is warn')
   })
 
-  it('debug test', () => {
-    logger.debug('hello this is debug')
+  it('info test', () => {
+    logger.info('hello this is info')
   })
 
   it('debug test', () => {

@@ -13,6 +13,11 @@ export interface LoggyOptions {
   formatMessageTemplate?: string
   backupDuration?: number
   shouldBackUp?: boolean
+  logLevelColor?: {
+    [key in LogLevel]?: {
+      color: keyof typeof color.fg
+    }
+  }
   cloud?: {
     ut: {
       apiKey: string
@@ -24,14 +29,6 @@ export interface LogTemplateParams {
   LEVEL: string
   TIME: string
   MESSAGE: string
-}
-
-export class LoggyPlugin {
-  name: string
-
-  constructor(name: string) {
-    this.name = name
-  }
 }
 
 export class BaseLoggy {
@@ -120,8 +117,17 @@ export class BaseLoggy {
     })
   }
 
-  use() {
-    // todo
+  #overrideLogLevelColor(type: LogLevel, c: string) {
+    if (this.#options?.logLevelColor) {
+      const { logLevelColor } = this.#options
+
+      if (logLevelColor[type]?.color)
+        return color.fg[logLevelColor[type]!.color]
+
+      return c
+    }
+
+    return c
   }
 
   async log(message: string, overrideLevel?: LogLevel) {
@@ -132,22 +138,22 @@ export class BaseLoggy {
 
     switch (this.#level) {
       case 'info':
-        console.log(color.fg.cyan, _message)
+        console.log(this.#overrideLogLevelColor('info', color.fg.cyan), _message)
         break
       case 'warn':
-        console.log(color.fg.yellow, _message)
+        console.log(this.#overrideLogLevelColor('warn', color.fg.yellow), _message)
         break
       case 'debug':
-        console.log(color.fg.gray, _message)
+        console.log(this.#overrideLogLevelColor('debug', color.fg.gray), _message)
         break
       case 'error':
-        console.log(color.fg.red, _message)
+        console.log(this.#overrideLogLevelColor('error', color.fg.red), _message)
         break
       case 'silly':
-        console.log(color.fg.magenta, _message)
+        console.log(this.#overrideLogLevelColor('silly', color.fg.magenta), _message)
         break
       case 'custom':
-        console.log(color.fg.white, _message)
+        console.log(this.#overrideLogLevelColor('custom', color.fg.white), _message)
         break
       default:
         break

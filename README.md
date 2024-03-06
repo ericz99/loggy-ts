@@ -21,6 +21,11 @@ const logger = createLogger({
     path: 'some-path',
     formatMessageTemplate: '😊 ({TIME}) - ({LEVEL}) - >> {MESSAGE}',
     backupDuration: 3600 * 1000 // 1 hour in MS
+    logLevelColor: {
+        error: {
+            color: 'blue',
+        },
+    },
     shouldBackUp: true,
     cloud: {
         ut: {
@@ -34,6 +39,11 @@ const logger = new Loggy({
     path: 'some-path',
     formatMessageTemplate: '😊 ({TIME}) - ({LEVEL}) - >> {MESSAGE}',
     backupDuration: 3600 * 1000 // 1 hour in MS
+    logLevelColor: {
+        error: {
+            color: 'blue',
+        },
+    },
     shouldBackUp: true,
     cloud: {
         ut: {
@@ -63,6 +73,7 @@ To configure the Cloud Backup Service, users need to provide the following param
 - formatMessageTemplate: The template for formatting log messages. Supported placeholders include {TIME}, {LEVEL}, and {MESSAGE}.
 - backupDuration: The duration (in milliseconds) between backups. Default is set to 1 hour.
 - shouldBackUp: A boolean indicating whether backups should be performed.
+- logLevelColor: You can configure your log level color.
 - cloud: Configuration for the cloud storage provider.
     - ut: Configuration specific to the cloud provider. Currently, only API key is supported.
         - apiKey: The API key for accessing the cloud storage provider.
