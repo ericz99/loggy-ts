@@ -1,17 +1,17 @@
 {
-  "name": "loggy",
+  "name": "loggy-ts",
   "type": "module",
   "version": "1.0.0",
   "packageManager": "pnpm@7.12.0",
   "description": "Simplify Logging",
   "author": "Eric Zhang",
   "license": "MIT",
-  "homepage": "https://github.com/ericz99/loggy#readme",
+  "homepage": "https://github.com/ericz99/loggy-ts#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ericz99/loggy.git"
+    "url": "git+https://github.com/ericz99/loggy-ts.git"
   },
-  "bugs": "https://github.com/ericz99/loggy/issues",
+  "bugs": "https://github.com/ericz99/loggy-ts/issues",
   "keywords": [],
   "sideEffects": false,
   "exports": {

@@ -5,7 +5,7 @@
 # Installation
 
 ```bash
-npm install loggy
+npm install loggy-ts
 ```
 
 # Features
@@ -20,7 +20,7 @@ npm install loggy
 
 ```typescript
 
-import { createLogger, Loggy } from 'loggy'
+import { createLogger, Loggy } from 'loggy-ts'
 
 // You can use either to initialize an instance in 2 ways
 
